@@ -30,10 +30,10 @@ Material:
       second: 1
     - first:
         name: _Zmax
-      second: 0
+      second: -3.15
     - first:
         name: _Zmin
-      second: -15
+      second: -18.52
     m_Colors:
     - first:
         name: _Color
