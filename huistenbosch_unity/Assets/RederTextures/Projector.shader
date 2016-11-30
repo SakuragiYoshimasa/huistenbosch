@@ -1,4 +1,6 @@
-﻿// Upgrade NOTE: replaced '_Projector' with 'unity_Projector'
+﻿// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+
+// Upgrade NOTE: replaced '_Projector' with 'unity_Projector'
 
 Shader "Custom/Projector" {
 	Properties {
@@ -10,11 +12,11 @@ Shader "Custom/Projector" {
 		Pass {
 			ZTest LEqual
 			ZWrite On
-			//Offset -1, -1
+			Offset -1, -1
 			Cull Back
-			Blend SrcAlpha OneMinusSrcAlpha
-			//BlendOp Max
-			//Blend One One
+			//Blend SrcAlpha OneMinusSrcAlpha
+			BlendOp Max
+			//BlendOp Add
 			CGPROGRAM
 
 			#pragma vertex vert
@@ -28,7 +30,7 @@ Shader "Custom/Projector" {
 			struct v2f {
     			float4 pos : SV_POSITION;
     			float2 uv : TEXCOORD0;
-    			float2 naiseki : TEXCOORD1;//
+    			float4 naiseki : TEXCOORD1;
 			};
 
 			float4 _MainTex_ST;
@@ -38,10 +40,16 @@ Shader "Custom/Projector" {
 
 			    v2f o;
 
-			    float4 origin = v.vertex;//
-			    o.naiseki.x = dot(normalize( _ProjectorPos - origin), v.normal);//
 
+			    float3 origin = v.vertex.xyz;
+			   //	float3 origin = o.pos;
+			    //o.naiseki.x = dot(normalize(_ProjectorPos.xyz - mul(UNITY_MATRIX_MVP ,origin)), normalize(mul(UNITY_MATRIX_MVP, v.normal)));//
+			    o.naiseki.x = dot(normalize(_ProjectorPos.xyz - origin),  mul(v.normal, unity_WorldToObject));//
 
+			    // o.naiseki.xyzw = normalize(mul(v.normal, _World2Object));
+			    // o.naiseki.xyzw = mul(v.normal, _World2Object) * 10;
+			   //  o.naiseki.xyz = normalize(o.naiseki.xyzw);
+			   // o.naiseki.xyz = v.normal;
 			    o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
 			    float4 p = mul(unity_Projector, v.vertex);
 			    o.uv = p.xy / p.w;
@@ -50,8 +58,12 @@ Shader "Custom/Projector" {
 
 			half4 frag (v2f i) : COLOR
 			{
-
-				if(i.naiseki.x < 0){
+				float4 c1;
+				c1.xyz = i.naiseki.xyz; 
+				c1.w = 1.0;
+				//return c1;
+				//return float4(i.naiseki.x,i.naiseki.x,i.naiseki.x,1.0);
+				if(i.naiseki.x < 0.1){
 					
 					return float4(0,0,0,0);
 				}

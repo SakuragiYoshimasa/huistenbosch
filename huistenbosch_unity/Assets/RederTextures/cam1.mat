@@ -139,4 +139,4 @@ Material:
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _ProjectorPos
-      second: {r: 98.1, g: -9, b: 96.4, a: 1}
+      second: {r: 0, g: -9, b: -96.4, a: 1}

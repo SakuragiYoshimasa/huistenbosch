@@ -10,7 +10,7 @@ Material:
   m_Shader: {fileID: 4800000, guid: 8fb4826fb75b74f569841ff49181d317, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -125,3 +125,6 @@ Material:
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _ProjectorPos
+      second: {r: 147.9, g: -9, b: -82.4, a: 0}
