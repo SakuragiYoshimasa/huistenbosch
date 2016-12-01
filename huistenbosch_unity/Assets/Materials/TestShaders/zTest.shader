@@ -8,8 +8,6 @@ Shader "Custom/zTest" {
 	SubShader {
 		Tags { "RenderType"="Opaque" }
 		Pass {
-           // Blend SrcAlpha One
-            //ZTest LEqual
             Blend SrcAlpha OneMinusSrcAlpha
             CGPROGRAM
             #pragma 
@@ -31,15 +29,25 @@ Shader "Custom/zTest" {
                 v2f o;
                 o.position = mul(UNITY_MATRIX_MVP, v.vertex);
                 o.uv       = MultiplyUV(UNITY_MATRIX_TEXTURE0, v.texcoord);
-                o.color    = v.color;
-                o.worldPos   = mul (unity_ObjectToWorld, v.vertex);
+                float4 worldNormal = mul (unity_ObjectToWorld, v.normal);
+                o.color = v.color;
+                //Surface test
+                //if(dot(normalize(worldNormal), float3(0,0,-1)) >= 0.01){
+                //o.color = v.color;
+                //}else{
+                //	o.color = float4(0,0,0,0);
+                //}
+
+                o.worldPos = mul (unity_ObjectToWorld, v.vertex);
                 return o;
             }
 
             fixed4 frag(v2f i) : COLOR {
                 if(i.worldPos.z > 0) return fixed4(0,0,0,0);
-                fixed4 c = fixed4((i.worldPos.z - _Zmin) / (_Zmax - _Zmin) , 1.0, 0, 1.0);
-                return c;
+                if(i.color.w == 0) return float4(0,0,0,0);
+        
+                fixed4 c = i.color * ((i.worldPos.z - _Zmin) / (_Zmax - _Zmin));
+                return fixed4(c.xyz, 1.0);
             }
             ENDCG
         }
