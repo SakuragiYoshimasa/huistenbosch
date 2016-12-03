@@ -21,7 +21,14 @@ public class Trump : MonoBehaviour {
 	private GameObject surface_back;
 		
 
-	// Use this for initialization
+	void OnEnable(){
+		Material mat = new Material (Shader.Find("Standard"));
+		mat.color = Random.ColorHSV ();
+			//new Color (Random.value, Random.value, Random.value);
+		surface_back.GetComponent<Renderer> ().material = mat;
+		surface_front.GetComponent<Renderer> ().material = mat;
+	}
+
 	void Start () {
 		
 	}

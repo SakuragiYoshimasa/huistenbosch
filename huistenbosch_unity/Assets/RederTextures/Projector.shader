@@ -31,6 +31,7 @@ Shader "Custom/Projector" {
     			float4 pos : SV_POSITION;
     			float2 uv : TEXCOORD0;
     			float4 naiseki : TEXCOORD1;
+    		
 			};
 
 			float4 _MainTex_ST;
@@ -53,6 +54,7 @@ Shader "Custom/Projector" {
 			    o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
 			    float4 p = mul(unity_Projector, v.vertex);
 			    o.uv = p.xy / p.w;
+
 			    return o;
 			}
 
