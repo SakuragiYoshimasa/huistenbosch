@@ -43,14 +43,14 @@ Shader "Custom/Projector" {
 
 
 			    float3 origin = v.vertex.xyz;
-			   //	float3 origin = o.pos;
+			    //float3 origin = o.pos;
 			    //o.naiseki.x = dot(normalize(_ProjectorPos.xyz - mul(UNITY_MATRIX_MVP ,origin)), normalize(mul(UNITY_MATRIX_MVP, v.normal)));//
 			    o.naiseki.x = dot(normalize(_ProjectorPos.xyz - origin),  mul(v.normal, unity_WorldToObject));//
 
 			    // o.naiseki.xyzw = normalize(mul(v.normal, _World2Object));
 			    // o.naiseki.xyzw = mul(v.normal, _World2Object) * 10;
-			   //  o.naiseki.xyz = normalize(o.naiseki.xyzw);
-			   // o.naiseki.xyz = v.normal;
+			    // o.naiseki.xyz = normalize(o.naiseki.xyzw);
+			    // o.naiseki.xyz = v.normal;
 			    o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
 			    float4 p = mul(unity_Projector, v.vertex);
 			    o.uv = p.xy / p.w;
