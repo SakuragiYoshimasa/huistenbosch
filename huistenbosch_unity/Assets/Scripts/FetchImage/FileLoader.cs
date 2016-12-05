@@ -10,7 +10,7 @@ public class FileLoader : MonoBehaviour {
 	public const int IMAGE_NUM = 20; 
 	static string texpath;
 
-	static List<Texture2D> LoadTextures(){
+	public static List<Texture2D> LoadTextures(){
 		List<Texture2D> textures = new List<Texture2D> (0);
 		for(int i = 0; i < IMAGE_NUM; i++){
 			Texture2D tex = new Texture2D(0,0);

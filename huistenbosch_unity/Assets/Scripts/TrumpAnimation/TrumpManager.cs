@@ -16,6 +16,9 @@ public class TrumpManager : Singleton<TrumpManager> {
 	[SerializeField]
 	private TrumpAnimationState state;
 
+	[SerializeField]
+	public Texture2D shapeTex;
+
 	void Start () {
 		state = TrumpAnimationState.Construction;
 	}

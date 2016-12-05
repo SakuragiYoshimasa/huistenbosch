@@ -19,22 +19,16 @@ public class Trump : MonoBehaviour {
 	private GameObject surface_front;
 	[SerializeField]
 	private GameObject surface_back;
-		
 
+		
 	void OnEnable(){
-		Material mat = new Material (Shader.Find("Standard"));
-		mat.color = Random.ColorHSV ();
-			//new Color (Random.value, Random.value, Random.value);
+		Material mat = new Material (Shader.Find("Custom/TrumpShader"));
+		//mat.color = Random.ColorHSV ();
+		mat.SetTexture("_MainTex",ImageLoadManager.I.GetRandomTexture ());
+		mat.SetTexture("_ShapeTex",TrumpManager.I.shapeTex);
+
+		//new Color (Random.value, Random.value, Random.value);
 		surface_back.GetComponent<Renderer> ().material = mat;
 		surface_front.GetComponent<Renderer> ().material = mat;
-	}
-
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }
