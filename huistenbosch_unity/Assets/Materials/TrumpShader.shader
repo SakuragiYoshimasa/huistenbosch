@@ -44,7 +44,7 @@
 				half3 worldNormal = UnityObjectToWorldNormal(v.normal);
 				half nl = max(0, dot(worldNormal, _WorldSpaceLightPos0.xyz));
                 o.diff = nl * _LightColor0;
-                //o.diff.rgb += ShadeSH9(half4(worldNormal,1));
+                o.diff.rgb += ShadeSH9(half4(worldNormal,1));
 				return o;
 			}
 
