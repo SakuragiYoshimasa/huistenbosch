@@ -8,11 +8,13 @@
 	SubShader {
 		Tags { "RenderType"="Opaque"}
 		Pass {
+			Tags {"LightMode"="ForwardBase"}
 			Blend SrcAlpha OneMinusSrcAlpha
 			CGPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
 			#include "UnityCG.cginc"
+			#include "UnityLightingCommon.cginc"
 
 			#pragma target 3.0
 
@@ -29,15 +31,20 @@
             struct v2f
             {
                 float2 uv : TEXCOORD0;
+                fixed4 diff : COLOR0;
                 UNITY_FOG_COORDS(1)
                 float4 vertex : SV_POSITION;
             };
 
 
-			v2f vert (appdata v) {
+			v2f vert (appdata_base v) {
 				v2f o;
 				o.vertex = mul (UNITY_MATRIX_MVP, v.vertex);
-				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+				o.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
+				half3 worldNormal = UnityObjectToWorldNormal(v.normal);
+				half nl = max(0, dot(worldNormal, _WorldSpaceLightPos0.xyz));
+                o.diff = nl * _LightColor0;
+                //o.diff.rgb += ShadeSH9(half4(worldNormal,1));
 				return o;
 			}
 
@@ -47,7 +54,7 @@
 				if(shapeCol.a == 0){
 					return fixed4(0,0,0,0);
 				}
-
+				col *= i.diff;
 				return col;
 			}
 			ENDCG
