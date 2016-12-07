@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FileLoader : MonoBehaviour {
 
-	public const string FOLDER_PATH = "C:/Users/sakuragi/Desktop/twitapi/insta_img/";
+	public const string FOLDER_PATH = "C:/Users/sakuragi/Desktop/twiapi/insta_img/";
 	public const string IMAGE_SUFFIX = ".jpg";
 	public const int IMAGE_NUM = 15; 
 	static string texpath;

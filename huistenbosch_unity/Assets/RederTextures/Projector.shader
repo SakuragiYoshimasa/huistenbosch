@@ -65,7 +65,7 @@ Shader "Custom/Projector" {
 				c1.w = 1.0;
 				//return c1;
 				//return float4(i.naiseki.x,i.naiseki.x,i.naiseki.x,1.0);
-				if(i.naiseki.x < -0.1){
+				if(i.naiseki.x < -0.1 || i.uv.x < 0 || i.uv.x > 1 || i.uv.y < 0 || i.uv.y > 1){
 					
 					return float4(0,0,0,0);
 				}
