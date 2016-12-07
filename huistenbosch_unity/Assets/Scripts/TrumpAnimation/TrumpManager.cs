@@ -24,6 +24,8 @@ public class TrumpManager : Singleton<TrumpManager> {
 	}
 
 	void Update () {
-		
+		if(Input.GetKeyUp(KeyCode.Space)){
+			Debug.Log (shapeTex);
+		}
 	}
 }
