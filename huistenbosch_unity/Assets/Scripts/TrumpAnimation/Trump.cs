@@ -21,7 +21,9 @@ public class Trump : MonoBehaviour {
 	private GameObject surface_back;
 
 		
-	void OnEnable(){
+	void Start(){
+        Debug.Log("Init");
+        Image = TrumpManager.I.shapeTex;
 		Material mat = new Material (Shader.Find("Custom/TrumpShader"));
 		//mat.color = Random.ColorHSV ();
 		mat.SetTexture("_MainTex",ImageLoadManager.I.GetRandomTexture ());
@@ -31,4 +33,13 @@ public class Trump : MonoBehaviour {
 		surface_back.GetComponent<Renderer> ().material = mat;
 		surface_front.GetComponent<Renderer> ().material = mat;
 	}
+
+    void Update() {
+
+        if (Input.GetKeyUp(KeyCode.Space)) {
+            Debug.Log("Update");
+            surface_back.GetComponent<Renderer>().material.SetTexture("_ShapeTex", TrumpManager.I.shapeTex);
+            surface_front.GetComponent<Renderer>().material.SetTexture("_ShapeTex", TrumpManager.I.shapeTex);
+        }
+    }
 }

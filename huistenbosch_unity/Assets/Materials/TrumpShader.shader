@@ -19,6 +19,7 @@
 			sampler2D _MainTex;
 			sampler2D _ShapeTex;
 			float4 _MainTex_ST;
+			//float4 _ShapeTex_ST;
 
 			struct appdata
             {

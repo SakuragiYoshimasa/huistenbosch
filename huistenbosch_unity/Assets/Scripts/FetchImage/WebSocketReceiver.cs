@@ -25,13 +25,14 @@ public class WebSocketReceiver : MonoBehaviour {
 			}
 			if (w.Error != null)
 			{
-				//Debug.LogError ("Error: "+w.Error);
+				Debug.LogError ("Error: "+w.Error);
 				break;
 			}
-			yield return new WaitForSeconds(0.5f);
+			yield return new WaitForSeconds(2.0f);
 			yield return 0;
 		}
 		w.Close();
+        Debug.Log("Closed");
 	}
 
 	//public delegate void getNewTweetCallBack(Tweet newTweet);
