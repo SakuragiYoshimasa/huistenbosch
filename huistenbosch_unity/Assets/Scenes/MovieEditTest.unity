@@ -28597,8 +28597,8 @@ Transform:
   - {fileID: 1110405500}
   - {fileID: 66221959}
   - {fileID: 2102789955}
-  - {fileID: 928382268}
   - {fileID: 1043429628}
+  - {fileID: 928382268}
   m_Father: {fileID: 688482155}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -57785,7 +57785,7 @@ MonoBehaviour:
   trumpCards: []
   pointsOfTrumptower: []
   state: 0
-  shapeTex: {fileID: 2800000, guid: 38913d2f581db481090ca361a895620b, type: 3}
+  shapeTex: {fileID: 2800000, guid: 71f30e38893cbfe4399a993abb2fbb54, type: 3}
 --- !u!4 &1966158803 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4070153700306668, guid: 3a3017e0ab1dd46759d9ef778a8f8351,

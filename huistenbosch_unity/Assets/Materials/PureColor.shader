@@ -4,45 +4,34 @@
 		_ShapeTex ("Shape", 2D) = "white" {}
 	}
 	SubShader {
-		Tags { "RenderType"="Opaque" }
-		Pass{
-			Blend SrcAlpha OneMinusSrcAlpha
-			CGPROGRAM
-			#pragma vertex vert
-			#pragma fragment frag 
-			#include "UnityCG.cginc"
+		Tags { "RenderType"="Transparent" }
+		
+		Blend SrcAlpha OneMinusSrcAlpha
+		CGPROGRAM
+		#pragma surface surf Lambert alpha
+		
+		struct Input {
+			float2 uv_MainTex;
+		};
 
-			struct appdata
-            {
-                float4 vertex : POSITION;
-                float2 uv : TEXCOORD0;
-            };
+		sampler2D _MainTex;
+		sampler2D _ShapeTex;
 
-			struct v2f {
-				float4 pos : SV_POSITION;
-				float2 uv : TEXCOORD0;
-			};
 
-			fixed4 _Color;
-			sampler2D _ShapeTex;
-			float4 _ShapeTex_ST;
+		void surf(Input IN, inout SurfaceOutput o) {
+			o.Albedo = tex2D(_MainTex, IN.uv_MainTex).rgb;
 
-			v2f vert (appdata v) {
-				v2f o;
-				o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
-				o.uv = TRANSFORM_TEX(v.uv, _ShapeTex);
-				return o;
+			fixed4 col = tex2D(_MainTex, IN.uv_MainTex);
+			fixed4 shapeCol = tex2D(_ShapeTex, IN.uv_MainTex);
+			if (shapeCol.a == 0) {
+				o.Albedo = fixed3(0, 0, 0);
+				o.Alpha = 0;
+				return;
 			}
-
-			fixed4 frag(v2f i): COLOR {
-				fixed4 shapeCol = tex2D(_ShapeTex, i.uv);
-				if(shapeCol.a == 0){
-					return fixed4(0,0,0,0);
-				}
-				return _Color;
-			}
-			ENDCG
+			o.Albedo = col.rgb;
+			o.Alpha = col.a;
 		}
+		ENDCG
 	}
 	FallBack "Diffuse"
 }
