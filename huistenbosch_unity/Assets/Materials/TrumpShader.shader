@@ -6,7 +6,7 @@
 
 	}
 	SubShader {
-		Tags { "RenderType"="Transparent"}
+		Tags { "RenderType" = "Opaque" "Queue" = "Transparent" }
 
 
 		Blend SrcAlpha OneMinusSrcAlpha
@@ -18,7 +18,7 @@
 		sampler2D _MainTex;
 		sampler2D _ShapeTex;
 	
-		#pragma surface surf Lambert alpha
+		#pragma surface surf Lambert alpha:fade
 		struct Input {
 			float2 uv_MainTex;
 		};
@@ -36,7 +36,7 @@
 			}
 	
 			o.Albedo = col.rgb;
-			o.Alpha = col.a;
+			o.Alpha = 1.0;
 		}
 		ENDCG
 	}
