@@ -11,6 +11,7 @@ public class MovieController : MonoBehaviour {
 	}
 		
 	public const int PRE_RENDERED_TIME_MILLIS = 240000;
+	public const int WHOLE_PLAYING_TIME_MILLS = 300000;
 
 	public PlayMode playmode = PlayMode.PRE_RENDERED;
 
@@ -28,9 +29,12 @@ public class MovieController : MonoBehaviour {
 
 		elapsedTimeMillis = now - starttime;
 
-		if (elapsedTimeMillis > PRE_RENDERED_TIME_MILLIS) {
+		if (elapsedTimeMillis > PRE_RENDERED_TIME_MILLIS && playmode == PlayMode.PRE_RENDERED) {
 			playmode = PlayMode.RLT_RENDERING;
 			switchToRLTRendering ();
+		}
+		if(elapsedTimeMillis > WHOLE_PLAYING_TIME_MILLS){
+			MainConrtroller.I.StopPlay ();
 		}
 	}
 
