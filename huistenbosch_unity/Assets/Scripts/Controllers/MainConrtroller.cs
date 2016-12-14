@@ -13,11 +13,16 @@ public class MainConrtroller : Singleton<MainConrtroller> {
 	[SerializeField]
 	private MovieController movieController;
 
+	#region BeforeStartMovie
 	public void StartMovieSplitIntoTwo(){
+		if(checkLoadedTextures()) return;
+
 		SoundController.playSound ();
 	}
 
 	public void StarrMovieSplitIntoThree(){
+		if(checkLoadedTextures()) return;
+
 		SoundController.playSound ();
 	}
 
@@ -26,7 +31,19 @@ public class MainConrtroller : Singleton<MainConrtroller> {
 		mainMenu.UpdateScrollImageViewContent ();
 	}
 
-	private void EmergencyStop(){
-		
+	private bool checkLoadedTextures(){
+		if(ImageLoadManager.I.GetLoadedTexturesSize() > 0){
+			return true;
+		}
+		return false;
 	}
+	#endregion
+
+
+	#region AfterStartMovie
+	private void EmergencyStop(){
+
+	}
+
+	#endregion
 }

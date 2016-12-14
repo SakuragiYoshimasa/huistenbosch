@@ -11,6 +11,9 @@ public class FileLoader : MonoBehaviour {
 	static string texpath;
 
 	public static List<Texture2D> LoadTextures(){
+
+		//TODO before load from local path, call node program in here asynch
+
 		List<Texture2D> textures = new List<Texture2D> (0);
 		for(int i = 0; i < IMAGE_NUM; i++){
 			Texture2D tex = new Texture2D(0,0);

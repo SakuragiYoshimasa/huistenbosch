@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour {
 
+	#region ScrollViewFields
 	[SerializeField]
 	private RectTransform scrollImageViewContent;
 
@@ -23,6 +24,14 @@ public class MainMenu : MonoBehaviour {
 	[SerializeField]
 	private float sumbnaleHeight;
 
+	[SerializeField]
+	private List<bool> selecedStates; 
+
+	[SerializeField]
+	private Color selectedColor;
+	#endregion
+
+	#region ScrollViewFunctions
 	public void LoadImages(){
 		MainConrtroller.I.LoadImages ();
 	}
@@ -35,12 +44,14 @@ public class MainMenu : MonoBehaviour {
 
 	public void UpdateScrollImageViewContent(){
 		List<Texture2D> textures = ImageLoadManager.I.GetTextures ();
+		selecedStates = new List<bool>(0);
 
 		scrollImageViewRectTransform.sizeDelta = new Vector2 (sumbnaleWidth * (float)scrollImageViewHorizontalImageNum, 500);
 		scrollImageViewContent.sizeDelta = new Vector2 (0, sumbnaleHeight * (float)(textures.Count / scrollImageViewHorizontalImageNum + 1));
 
 		for(int i = 0; i < textures.Count; i++){
 			GameObject image = new GameObject ("Sumbnale" + i.ToString());
+			selecedStates.Add (false);
 
 			image.transform.parent = scrollImageViewContentTransform;
 	
@@ -56,7 +67,36 @@ public class MainMenu : MonoBehaviour {
 				0
 			);
 
-			image.AddComponent<Image> ().sprite = Sprite.Create(textures[i], new Rect(0,0,256,256), Vector2.zero);
+			Image imageComponent = image.AddComponent<Image> ();
+			imageComponent.sprite = Sprite.Create(textures[i], new Rect(0,0,256,256), Vector2.zero);
+
+			Button buttomComponent = image.AddComponent<Button> ();
+			AddButtonEvent (buttomComponent, imageComponent, i);
+
 		}
 	}
+
+	public void ChangeSelectedState(Image imageComponent, int index){
+		Debug.Log ("SelecedStatesSize : " + selecedStates.Count.ToString());
+		Debug.Log ("index:" + index.ToString());
+		selecedStates [index] = !selecedStates [index];
+
+		if (selecedStates [index]) {
+			imageComponent.color = selectedColor;
+		} else {
+			imageComponent.color = Color.white;
+		}
+	} 
+
+	void AddButtonEvent(Button button,Image imageComponent ,int index) {
+		button.onClick.AddListener(() => {
+			ChangeSelectedState(imageComponent, index);
+		});
+	}
+
+	#endregion
+
+
+
+
 }

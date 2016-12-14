@@ -7,6 +7,8 @@ public class ImageLoadManager : Singleton<ImageLoadManager> {
 	[SerializeField]
 	private List<Texture2D> textures;
 
+
+
 	[SerializeField]
 	private int usedIndex;
 
@@ -48,5 +50,9 @@ public class ImageLoadManager : Singleton<ImageLoadManager> {
 
 	public void LoadTextures(){
 		textures = FileLoader.LoadTextures ();
+	}
+
+	public int GetLoadedTexturesSize(){
+		return textures.Count;
 	}
 }
