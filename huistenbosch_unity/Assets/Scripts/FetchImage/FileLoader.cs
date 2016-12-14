@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class FileLoader : MonoBehaviour {
 
-	public const string FOLDER_PATH = "C:/Users/sakuragi/Desktop/twiapi/twitter_img/";
+	public const string FOLDER_PATH = "/Users/yoshimasasakuragi/Desktop/twiapi/img/";
 	public const string IMAGE_SUFFIX = ".jpg";
-	public const int IMAGE_NUM = 100; 
+	public const int IMAGE_NUM = 188; 
 	static string texpath;
 
 	public static List<Texture2D> LoadTextures(){

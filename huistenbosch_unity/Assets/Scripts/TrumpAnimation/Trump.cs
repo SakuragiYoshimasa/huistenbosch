@@ -26,7 +26,7 @@ public class Trump : MonoBehaviour {
         Image = TrumpManager.I.shapeTex;
 		Material mat = new Material (Shader.Find("Custom/TrumpShader"));
 		//mat.color = Random.ColorHSV ();
-		mat.SetTexture("_MainTex",ImageLoadManager.I.GetRandomTexture ());
+		mat.SetTexture("_MainTex",ImageLoadManager.I.GetSortedTexture());
 		mat.SetTexture("_ShapeTex",TrumpManager.I.shapeTex);
 
 		//new Color (Random.value, Random.value, Random.value);
