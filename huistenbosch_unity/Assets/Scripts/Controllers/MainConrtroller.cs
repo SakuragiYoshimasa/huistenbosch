@@ -18,13 +18,12 @@ public class MainConrtroller : Singleton<MainConrtroller> {
 	}
 
 	public void StarrMovieSplitIntoThree(){
-		
+		SoundController.playSound ();
 	}
 
 	public void LoadImages(){
 		ImageLoadManager.I.LoadTextures ();
-
-
+		mainMenu.UpdateScrollImageViewContent ();
 	}
 
 	private void EmergencyStop(){
