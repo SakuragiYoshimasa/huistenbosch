@@ -46,6 +46,10 @@ public class MainMenu : MonoBehaviour {
 		MainConrtroller.I.RemoveSelectedTextures (selecedStates);
 		UpdateScrollImageViewContent ();
 	}
+
+	public void StopPlay(){
+		MainConrtroller.I.StopPlay ();
+	}
 	#endregion
 
 	#region ScrollViewFunctions

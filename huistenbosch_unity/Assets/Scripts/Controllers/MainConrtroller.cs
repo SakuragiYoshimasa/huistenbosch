@@ -10,27 +10,34 @@ public class MainConrtroller : Singleton<MainConrtroller> {
 		TESTPROJECTION
 	}
 
+	public enum SplitMode {
+		TWO,
+		THREE
+	}
+
+	public SplitMode splitMode;
+
 	[SerializeField]
 	private MainMenu mainMenu;
 
 	//In movie
 	[SerializeField]
-	private SoundController SoundController;
+	private SoundController soundController;
 	[SerializeField]
 	private MovieController movieController;
 
 	#region BeforeStartMovie
 	public void StartMovieSplitIntoTwo(){
 		if(!checkLoadedTextures()) return;
-
-		SoundController.playSound ();
+		splitMode = SplitMode.TWO;
+		soundController.playSound ();
 		mainMenu.switchToPlayingMode ();
 	}
 
 	public void StarrMovieSplitIntoThree(){
 		if(!checkLoadedTextures()) return;
-
-		SoundController.playSound ();
+		splitMode = SplitMode.THREE;
+		soundController.playSound ();
 		mainMenu.switchToPlayingMode ();
 	}
 
@@ -53,9 +60,10 @@ public class MainConrtroller : Singleton<MainConrtroller> {
 
 
 	#region AfterStartMovie
-	private void EmergencyStop(){
-
+	public void StopPlay(){
+		mainMenu.switchToMenuMode ();
+		soundController.stopSound ();
+		movieController.stopMovie ();
 	}
-
 	#endregion
 }
