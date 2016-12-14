@@ -5,33 +5,34 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour {
 
+	#region ActiveControllObjects
+	[SerializeField]
+	private GameObject[] menuObjects;
+	[SerializeField]
+	private GameObject[] previewObjects;
+	#endregion
+
+
 	#region ScrollViewFields
 	[SerializeField]
 	private RectTransform scrollImageViewContent;
-
 	[SerializeField]
 	private Transform scrollImageViewContentTransform;
-
 	[SerializeField]
 	private int scrollImageViewHorizontalImageNum;
-
 	[SerializeField]
 	private RectTransform scrollImageViewRectTransform;
-
 	[SerializeField]
 	private float sumbnaleWidth;
-
 	[SerializeField]
 	private float sumbnaleHeight;
-
 	[SerializeField]
 	private List<bool> selecedStates; 
-
 	[SerializeField]
 	private Color selectedColor;
 	#endregion
 
-	#region ScrollViewFunctions
+	#region ButtonEvent
 	public void LoadImages(){
 		MainConrtroller.I.LoadImages ();
 	}
@@ -41,8 +42,19 @@ public class MainMenu : MonoBehaviour {
 	public void StartMovieSplitIntoThree(){
 		MainConrtroller.I.StarrMovieSplitIntoThree ();
 	}
+	public void RemoveSelectedTextures(){
+		MainConrtroller.I.RemoveSelectedTextures (selecedStates);
+		UpdateScrollImageViewContent ();
+	}
+	#endregion
 
+	#region ScrollViewFunctions
 	public void UpdateScrollImageViewContent(){
+
+		for( int i=0; i < scrollImageViewContentTransform.childCount; ++i ){
+			GameObject.Destroy( scrollImageViewContentTransform.GetChild( i ).gameObject );
+		}
+
 		List<Texture2D> textures = ImageLoadManager.I.GetTextures ();
 		selecedStates = new List<bool>(0);
 
@@ -75,7 +87,6 @@ public class MainMenu : MonoBehaviour {
 
 		}
 	}
-
 	public void ChangeSelectedState(Image imageComponent, int index){
 		Debug.Log ("SelecedStatesSize : " + selecedStates.Count.ToString());
 		Debug.Log ("index:" + index.ToString());
@@ -87,16 +98,36 @@ public class MainMenu : MonoBehaviour {
 			imageComponent.color = Color.white;
 		}
 	} 
-
-	void AddButtonEvent(Button button,Image imageComponent ,int index) {
+	public void AddButtonEvent(Button button,Image imageComponent ,int index) {
 		button.onClick.AddListener(() => {
 			ChangeSelectedState(imageComponent, index);
 		});
 	}
-
 	#endregion
 
+	void Start(){
+		switchToMenuMode ();
+	}
 
+	#region SwitchGUIMode
+	public void switchToMenuMode(){
+		foreach(GameObject go in menuObjects){
+			go.SetActive (true);
+		}
 
+		foreach(GameObject go in previewObjects){
+			go.SetActive (false);
+		}
+	}
+	public void switchToPlayingMode(){
+		foreach(GameObject go in menuObjects){
+			go.SetActive (false);
+		}
 
+		foreach (GameObject go in previewObjects) {
+			go.SetActive (true);
+		}
+	}
+
+	#endregion
 }

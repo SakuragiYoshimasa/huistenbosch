@@ -55,4 +55,16 @@ public class ImageLoadManager : Singleton<ImageLoadManager> {
 	public int GetLoadedTexturesSize(){
 		return textures.Count;
 	}
+
+	public void RemoveSelectedTextures(List<bool> selectedStates){
+		List<Texture2D> newTextures = new List<Texture2D> (0);
+
+		for(int i = 0; i < textures.Count; i++){
+
+			if (!selectedStates [i]) {
+				newTextures.Add (textures[i]);
+			}
+		}
+		textures = newTextures;
+	}
 }

@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class MainConrtroller : Singleton<MainConrtroller> {
 
+	enum AppState {
+		MENU,
+		PLAYING,
+		TESTPROJECTION
+	}
+
 	[SerializeField]
 	private MainMenu mainMenu;
 
@@ -15,15 +21,17 @@ public class MainConrtroller : Singleton<MainConrtroller> {
 
 	#region BeforeStartMovie
 	public void StartMovieSplitIntoTwo(){
-		if(checkLoadedTextures()) return;
+		if(!checkLoadedTextures()) return;
 
 		SoundController.playSound ();
+		mainMenu.switchToPlayingMode ();
 	}
 
 	public void StarrMovieSplitIntoThree(){
-		if(checkLoadedTextures()) return;
+		if(!checkLoadedTextures()) return;
 
 		SoundController.playSound ();
+		mainMenu.switchToPlayingMode ();
 	}
 
 	public void LoadImages(){
@@ -36,6 +44,10 @@ public class MainConrtroller : Singleton<MainConrtroller> {
 			return true;
 		}
 		return false;
+	}
+
+	public void RemoveSelectedTextures(List<bool> selectedStates){
+		ImageLoadManager.I.RemoveSelectedTextures (selectedStates);
 	}
 	#endregion
 
