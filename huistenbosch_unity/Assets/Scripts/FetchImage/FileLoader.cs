@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class FileLoader : MonoBehaviour {
 
-	public const string FOLDER_PATH = "C:/Users/sakuragi/Desktop/twiapi/twitter_img/";
+	public const string FOLDER_PATH = "/Users/yoshimasasakuragi/Desktop/twiapi/img/";
 	public const string IMAGE_SUFFIX = ".jpg";
-	public const int IMAGE_NUM = 100; 
+	public const int IMAGE_NUM = 188; 
 	static string texpath;
 
 	public static List<Texture2D> LoadTextures(){
+
+		//TODO before load from local path, call node program in here asynch
+
 		List<Texture2D> textures = new List<Texture2D> (0);
 		for(int i = 0; i < IMAGE_NUM; i++){
 			Texture2D tex = new Texture2D(0,0);
