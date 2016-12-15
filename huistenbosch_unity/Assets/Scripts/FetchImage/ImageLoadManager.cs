@@ -7,8 +7,6 @@ public class ImageLoadManager : Singleton<ImageLoadManager> {
 	[SerializeField]
 	private List<Texture2D> textures;
 
-
-
 	[SerializeField]
 	private int usedIndex;
 

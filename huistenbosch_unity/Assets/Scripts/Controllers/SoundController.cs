@@ -11,11 +11,9 @@ public class SoundController : MonoBehaviour {
 	public void playSound(){
 		bgm.Play ();
 	}
-
 	public void stopSound(){
 		bgm.Stop ();
 	}
-
 	public void pauseSound(){
 		bgm.Pause ();
 	}

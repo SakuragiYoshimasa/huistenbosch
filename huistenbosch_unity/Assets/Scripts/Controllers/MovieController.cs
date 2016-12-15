@@ -63,6 +63,7 @@ public class MovieController : MonoBehaviour {
 		playmode = PlayMode.PRE_RENDERED;
 		starttime = DateTime.Now.Hour * 60 *60 * 1000 + DateTime.Now.Minute * 60 * 1000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
 		isPlaying = true;
+		switchToPreRendered ();
 	}
 
 	public void stopMovie(){
@@ -77,11 +78,13 @@ public class MovieController : MonoBehaviour {
 		outputCamSource1 = rltRenderingMovieSource1;
 		outputCamSource2 = rltRenderingMovieSource2;
 		outputCamSource3 = rltRenderingMovieSource3;
+		//TODO Play movie
 	}
 
 	private void switchToPreRendered(){
 		outputCamSource1 = preRenderedMovieSource1;
 		outputCamSource2 = preRenderedMovieSource2;
 		outputCamSource3 = preRenderedMovieSource3;
+		//TODO startAnimation
 	}
 }
