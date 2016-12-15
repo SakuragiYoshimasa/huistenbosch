@@ -38,7 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4630215745471222}
   - component: {fileID: 114436568667518668}
-  - component: {fileID: 54249795371808656}
+  - component: {fileID: 54821156794266232}
   m_Layer: 13
   m_Name: TrumpMiddle
   m_TagString: Trump
@@ -101,18 +101,16 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1213174894608326}
-
-  m_LocalRotation: {x: -0.27059805, y: -0.27059805, z: 0.6532815, w: 0.6532815}
-  m_LocalPosition: {x: 4.5, y: 24.98, z: -4.5}
-  m_LocalScale: {x: 1.0000005, y: 1.0000002, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 3.8700027, y: 5.895604, z: -4.29}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4149638969333724}
   - {fileID: 4721381060698086}
   - {fileID: 4672422898998766}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-
-  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 90}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &4672422898998766
 Transform:
   m_ObjectHideFlags: 1
@@ -253,9 +251,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1185078394287106}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
-
---- !u!54 &54249795371808656
-
+--- !u!54 &54821156794266232
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

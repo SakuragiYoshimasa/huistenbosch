@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum TrumpAnimationState {
+public enum TrumpAnimationState {
 	Construction,
 	Distruction
 };

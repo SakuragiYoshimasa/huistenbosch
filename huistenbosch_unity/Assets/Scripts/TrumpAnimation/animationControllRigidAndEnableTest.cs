@@ -19,7 +19,7 @@ public class animationControllRigidAndEnableTest : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyUp(KeyCode.Space)) {
+        if (Input.GetKeyUp(KeyCode.Space) && TrumpManager.I.State == TrumpAnimationState.Distruction) {
             foreach (GameObject go in AddRigidBodyObjects ){
                 go.AddComponent<Rigidbody>();
                 if (go.GetComponent<MeshCollider>() != null) {

@@ -79,6 +79,7 @@
 -define:UNITY_EDITOR_64
 -define:UNITY_EDITOR_WIN
 -define:UNITY_TEAM_LICENSE
+Assets/Animation_ConstructionTest.cs
 Assets/Scripts/Controllers/MainConrtroller.cs
 Assets/Scripts/Controllers/MainMenu.cs
 Assets/Scripts/Controllers/MovieController.cs
