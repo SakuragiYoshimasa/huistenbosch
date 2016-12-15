@@ -20,26 +20,22 @@ public class Trump : MonoBehaviour {
 	[SerializeField]
 	private GameObject surface_back;
 
-		
 	void Start(){
         Debug.Log("Init");
         Image = TrumpManager.I.shapeTex;
 		Material mat = new Material (Shader.Find("Custom/TrumpShader"));
-		//mat.color = Random.ColorHSV ();
-		mat.SetTexture("_MainTex",ImageLoadManager.I.GetRandomTexture ());
+		mat.SetTexture("_MainTex",ImageLoadManager.I.GetSortedTexture());
 		mat.SetTexture("_ShapeTex",TrumpManager.I.shapeTex);
 
-		//new Color (Random.value, Random.value, Random.value);
 		surface_back.GetComponent<Renderer> ().material = mat;
 		surface_front.GetComponent<Renderer> ().material = mat;
 	}
 
     void Update() {
-
-        if (Input.GetKeyUp(KeyCode.Space)) {
+        /*if (Input.GetKeyUp(KeyCode.Space)) {
             Debug.Log("Update");
             surface_back.GetComponent<Renderer>().material.SetTexture("_ShapeTex", TrumpManager.I.shapeTex);
             surface_front.GetComponent<Renderer>().material.SetTexture("_ShapeTex", TrumpManager.I.shapeTex);
-        }
+        }*/
     }
 }
