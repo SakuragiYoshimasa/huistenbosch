@@ -94,6 +94,7 @@ Assets/Scripts/TrumpAnimation/TrumpAnimationState.cs
 Assets/Scripts/TrumpAnimation/TrumpManager.cs
 Assets/Scripts/TrumpAnimation/Wind.cs
 Assets/Scripts/TrumpAnimation/animationControllRigidAndEnableTest.cs
+Assets/Scripts/TrumpAnimation/makeAnimation.cs
 Assets/Scripts/testScript/rotationTest.cs
 Assets/Scripts/testScript/test_mov.cs
 Assets/Spout/Scripts/InvertCamera.cs

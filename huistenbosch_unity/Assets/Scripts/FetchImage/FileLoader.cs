@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class FileLoader : MonoBehaviour {
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
-    public const string FOLDER_PATH = "/Users/sakuragi/Desktop/twiapi/insta_img/";
-    public const int IMAGE_NUM = 15;
+    public const string FOLDER_PATH = "/Users/sakuragi/Desktop/twiapi/img_scrape/";
+    public const int IMAGE_NUM = 188;
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
     public const string FOLDER_PATH = "/Users/yoshimasasakuragi/Desktop/twiapi/img/";
     public const int IMAGE_NUM = 188; 

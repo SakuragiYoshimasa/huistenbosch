@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/SpoutTest.unity
+- path: Assets/Scenes/MovieEditTest.unity
   isLoaded: 1
   isActive: 1
