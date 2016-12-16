@@ -12,8 +12,9 @@ public class Animation_ConstructionTest : MonoBehaviour {
 	
 
 	void Update () {
-      
-	}
+       // float fps = 1f / Time.deltaTime;
+       // Debug.LogFormat("{0}fps", fps);
+    }
     
     void removeRigidBody(Transform parent) {
         for (int i = 0; i < parent.childCount; ++i)
