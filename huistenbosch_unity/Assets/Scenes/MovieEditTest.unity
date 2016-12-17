@@ -7575,7 +7575,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4630215745471222, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 14.999995
+      value: 14.999994
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
@@ -11929,7 +11929,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4630215745471222, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 14.999995
+      value: 14.999994
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
@@ -22828,15 +22828,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4630215745471222, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 43.47861
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4630215745471222, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 54.909515
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4630215745471222, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 44.70264
+      value: 89.99999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
@@ -29464,7 +29464,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4630215745471222, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 14.999995
+      value: 14.999994
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
@@ -29798,7 +29798,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4630215745471222, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 14.999995
+      value: 14.999994
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
@@ -34393,7 +34393,7 @@ GameObject:
   - component: {fileID: 829394433}
   m_Layer: 13
   m_Name: clock (1)
-  m_TagString: Untagged
+  m_TagString: makeKeyFrame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42834,7 +42834,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4630215745471222, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 14.999995
+      value: 14.999994
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
@@ -56351,7 +56351,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4630215745471222, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 14.999995
+      value: 14.999994
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
@@ -61954,15 +61954,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4630215745471222, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 71.520905
+      value: 89.99999
       objectReference: {fileID: 0}
     - target: {fileID: 4630215745471222, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -28.494013
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4630215745471222, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -45.803726
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 4630215745471222, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
       propertyPath: m_LocalScale.x
@@ -65978,7 +65978,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4630215745471222, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 14.999995
+      value: 14.999994
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
@@ -67532,7 +67532,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4630215745471222, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 14.999995
+      value: 14.999994
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
@@ -67555,7 +67555,7 @@ GameObject:
   - component: {fileID: 1697058233}
   m_Layer: 13
   m_Name: NGon003 (1)
-  m_TagString: Untagged
+  m_TagString: makeKeyFrame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67685,11 +67685,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4630215745471222, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 86.150185
+      value: 89.99999
       objectReference: {fileID: 0}
     - target: {fileID: 4630215745471222, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 28.90619
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4630215745471222, guid: ce1764374b9df4ec9876facc14127b59, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -80192,6 +80192,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1982745391}
+  - component: {fileID: 1982745392}
   m_Layer: 0
   m_Name: Trumps_tower_destruction
   m_TagString: Untagged
@@ -80215,6 +80216,19 @@ Transform:
   m_Father: {fileID: 481211884}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1982745392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1982745390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64e30f152a330ea4ab348f26c40ee714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTower: {fileID: 0}
+  elapsedTime: 0
 --- !u!4 &1983836465 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4070153700306668, guid: 3a3017e0ab1dd46759d9ef778a8f8351,

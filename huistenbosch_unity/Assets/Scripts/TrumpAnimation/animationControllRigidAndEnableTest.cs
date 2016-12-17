@@ -20,8 +20,8 @@ public class animationControllRigidAndEnableTest : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         float fps = 1f / Time.deltaTime;
-        Debug.LogFormat("{0}fps", fps);
-        if (Input.GetKeyUp(KeyCode.Space) && TrumpManager.I.State == TrumpAnimationState.Distruction) {
+        //Debug.LogFormat("{0}fps", fps);
+        if (Input.GetKeyUp(KeyCode.Space)) {
             foreach (GameObject go in AddRigidBodyObjects ){
                 go.AddComponent<Rigidbody>();
                 if (go.GetComponent<MeshCollider>() != null) {
