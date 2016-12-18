@@ -31,6 +31,7 @@ public class MainConrtroller : Singleton<MainConrtroller> {
 		if(!checkLoadedTextures()) return;
 		splitMode = SplitMode.TWO;
 		soundController.playSound ();
+        movieController.playMovie();
 		mainMenu.switchToPlayingMode ();
 	}
 
@@ -38,12 +39,12 @@ public class MainConrtroller : Singleton<MainConrtroller> {
 		if(!checkLoadedTextures()) return;
 		splitMode = SplitMode.THREE;
 		soundController.playSound ();
-		mainMenu.switchToPlayingMode ();
+        movieController.playMovie();
+        mainMenu.switchToPlayingMode ();
 	}
 
 	public void LoadImages(){
 		ImageLoadManager.I.LoadTextures ();
-		mainMenu.UpdateScrollImageViewContent ();
 	}
 
 	private bool checkLoadedTextures(){
@@ -56,6 +57,10 @@ public class MainConrtroller : Singleton<MainConrtroller> {
 	public void RemoveSelectedTextures(List<bool> selectedStates){
 		ImageLoadManager.I.RemoveSelectedTextures (selectedStates);
 	}
+
+    public void SetPreviewTexture(RenderTexture tex) {
+        mainMenu.SetPreviewTexture(tex);
+    }
 	#endregion
 
 

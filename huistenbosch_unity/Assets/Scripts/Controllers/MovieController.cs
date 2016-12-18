@@ -22,26 +22,14 @@ public class MovieController : MonoBehaviour {
 	private bool isPlaying = false;
 
 	[SerializeField]
-	private RenderTexture outputCamSource1;
-	[SerializeField]
-	private RenderTexture outputCamSource2;
-	[SerializeField]
-	private RenderTexture outputCamSource3;
+	private Spout.SpoutSender spoutSender;
 
 	[SerializeField]
-	private RenderTexture preRenderedMovieSource1;
-	[SerializeField]
-	private RenderTexture preRenderedMovieSource2;
-	[SerializeField]
-	private RenderTexture preRenderedMovieSource3;
+	private RenderTexture preRenderedMovieSource;
 
 	[SerializeField]
-	private RenderTexture rltRenderingMovieSource1;
-	[SerializeField]
-	private RenderTexture rltRenderingMovieSource2;
-	[SerializeField]
-	private RenderTexture rltRenderingMovieSource3;
-
+	private RenderTexture rltRenderingMovieSource;
+	
 	void Update(){
 		if (!isPlaying) return;
 
@@ -75,16 +63,12 @@ public class MovieController : MonoBehaviour {
 	}
 
 	private void switchToRLTRendering(){
-		outputCamSource1 = rltRenderingMovieSource1;
-		outputCamSource2 = rltRenderingMovieSource2;
-		outputCamSource3 = rltRenderingMovieSource3;
-		//TODO Play movie
+        spoutSender.texture = rltRenderingMovieSource;
+        MainConrtroller.I.SetPreviewTexture(rltRenderingMovieSource);
 	}
 
 	private void switchToPreRendered(){
-		outputCamSource1 = preRenderedMovieSource1;
-		outputCamSource2 = preRenderedMovieSource2;
-		outputCamSource3 = preRenderedMovieSource3;
-		//TODO startAnimation
+        spoutSender.texture = preRenderedMovieSource;
+        MainConrtroller.I.SetPreviewTexture(preRenderedMovieSource);
 	}
 }

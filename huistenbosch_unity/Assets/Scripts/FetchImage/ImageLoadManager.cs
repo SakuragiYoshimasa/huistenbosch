@@ -4,51 +4,78 @@ using UnityEngine;
 
 public class ImageLoadManager : Singleton<ImageLoadManager> {
 
-	[SerializeField]
-	private List<Texture2D> textures;
+    [SerializeField]
+    private List<Texture2D> textures;
 
-	[SerializeField]
-	private int usedIndex;
+    [SerializeField]
+    private int usedIndex;
 
-	void Start(){
-		usedIndex = 0;
-	}
+    [SerializeField]
+    private ProcessRunner processRunner;
 
-	public List<Texture2D> GetTextures(){
-		if(textures.Count == 0){
-			textures = FileLoader.LoadTextures ();
-		}
-		return textures;
-	}
+    [SerializeField]
+    private MainMenu mainMenu;
 
-	public Texture2D GetRandomTexture(){
-		if(textures.Count == 0){
-			textures = FileLoader.LoadTextures ();
-		}
+    public bool FetchFinished = false;
 
-		double randomValue = Random.value;
-		int index = (int)(randomValue * (double)textures.Count);
-		return textures [index];
-	}
+    void Start() {
+        usedIndex = 0;
+    }
 
-	public Texture2D GetSortedTexture(){
+    void Update() {
+        if (FetchFinished) {
+            HandleFetchedImages();
+            FetchFinished = false;
+        }
+    }
 
-		if(textures.Count == 0){
-			textures = FileLoader.LoadTextures ();
-		}
+    public List<Texture2D> GetTextures() {
+        if (textures.Count == 0) {
+            textures = FileLoader.LoadTextures();
+        }
+        return textures;
+    }
 
-		int useIndex = usedIndex;
-		usedIndex++;
-		if(usedIndex >= textures.Count - 1){
-			usedIndex = 0;
-		}
+    public Texture2D GetRandomTexture() {
+        if (textures.Count == 0) {
+            textures = FileLoader.LoadTextures();
+        }
 
-		return textures [useIndex];
-	}
+        double randomValue = Random.value;
+        int index = (int)(randomValue * (double)textures.Count);
+        return textures[index];
+    }
 
-	public void LoadTextures(){
-		textures = FileLoader.LoadTextures ();
-	}
+    public Texture2D GetSortedTexture() {
+
+        if (textures.Count == 0) {
+            textures = FileLoader.LoadTextures();
+        }
+
+        int useIndex = usedIndex;
+        usedIndex++;
+        if (usedIndex >= textures.Count - 1) {
+            usedIndex = 0;
+        }
+
+        return textures[useIndex];
+    }
+
+    public void LoadTextures() {
+        //processRunner.FetchImage();
+        //動作確認済みなので省略
+        LoadDummyTextures();
+    }
+
+    public void LoadDummyTextures() {
+        textures = FileLoader.LoadTextures();
+        mainMenu.UpdateScrollImageViewContent();
+    }
+
+    public void HandleFetchedImages() {
+        textures = FileLoader.LoadTextures();
+        mainMenu.UpdateScrollImageViewContent();
+    }
 
 	public int GetLoadedTexturesSize(){
 		return textures.Count;

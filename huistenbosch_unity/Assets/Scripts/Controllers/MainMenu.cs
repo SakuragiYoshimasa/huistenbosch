@@ -58,6 +58,10 @@ public class MainMenu : MonoBehaviour {
 	private List<bool> selecedStates; 
 	[SerializeField]
 	private Color selectedColor;
+    [SerializeField]
+    private Canvas mainCanvas;
+    [SerializeField]
+    private RawImage preView;
 	#endregion
 
 	#region ButtonEvent
@@ -90,10 +94,13 @@ public class MainMenu : MonoBehaviour {
 		List<Texture2D> textures = ImageLoadManager.I.GetTextures ();
 		selecedStates = new List<bool>(0);
 
-		scrollImageViewRectTransform.sizeDelta = new Vector2 (sumbnaleWidth * (float)scrollImageViewHorizontalImageNum, 500);
+        scrollImageViewRectTransform.sizeDelta = new Vector2 (sumbnaleWidth * (float)scrollImageViewHorizontalImageNum, 500);
 		scrollImageViewContent.sizeDelta = new Vector2 (0, sumbnaleHeight * (float)(textures.Count / scrollImageViewHorizontalImageNum + 1));
 
-		for(int i = 0; i < textures.Count; i++){
+        float imageSize = Screen.width / 10.0f;
+
+
+        for (int i = 0; i < textures.Count; i++){
 			GameObject image = new GameObject ("Sumbnale" + i.ToString());
 			selecedStates.Add (false);
 
@@ -104,7 +111,7 @@ public class MainMenu : MonoBehaviour {
 			rTransform.anchorMin = new Vector2 (0, 1);
 			rTransform.anchorMax = new Vector2 (0, 1);
 			rTransform.pivot = new Vector2 (0, 0);
-			rTransform.sizeDelta = new Vector2 (150, 150);
+			rTransform.sizeDelta = new Vector2 (imageSize, imageSize);
 			rTransform.localPosition = new Vector3 (
 				(float)(i % scrollImageViewHorizontalImageNum) * sumbnaleHeight, 
 				-150f - sumbnaleHeight * (float)(i / scrollImageViewHorizontalImageNum), 
@@ -112,12 +119,14 @@ public class MainMenu : MonoBehaviour {
 			);
 
 			Image imageComponent = image.AddComponent<Image> ();
-			imageComponent.sprite = Sprite.Create(textures[i], new Rect(0,0,256,256), Vector2.zero);
-
+			imageComponent.sprite = Sprite.Create(textures[i], new Rect(0,0,textures[i].width, textures[i].height), Vector2.zero);
+            imageComponent.type = Image.Type.Filled;
 			Button buttomComponent = image.AddComponent<Button> ();
 			AddButtonEvent (buttomComponent, imageComponent, i);
 
 		}
+
+        Canvas.ForceUpdateCanvases();
 	}
 	public void ChangeSelectedState(Image imageComponent, int index){
 		Debug.Log ("SelecedStatesSize : " + selecedStates.Count.ToString());
@@ -135,9 +144,14 @@ public class MainMenu : MonoBehaviour {
 			ChangeSelectedState(imageComponent, index);
 		});
 	}
-	#endregion
+    #endregion
 
-	void Start(){
+    public void SetPreviewTexture(RenderTexture tex)
+    {
+        preView.texture = tex;
+    }
+
+    void Start(){
 		//ResizeMenuGUIComponent ();
 		switchToMenuMode ();
 	}

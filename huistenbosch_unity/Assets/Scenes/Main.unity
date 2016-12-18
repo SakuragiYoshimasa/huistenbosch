@@ -476,6 +476,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textures: []
   usedIndex: 0
+  processRunner: {fileID: 1691631546}
+  mainMenu: {fileID: 348104936}
+  FetchFinished: 0
 --- !u!4 &156597220
 Transform:
   m_ObjectHideFlags: 0
@@ -485,7 +488,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1691631545}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -771,6 +775,8 @@ MonoBehaviour:
   sumbnaleHeight: 150
   selecedStates: 
   selectedColor: {r: 0.034482475, g: 0, b: 1, a: 1}
+  mainCanvas: {fileID: 771053480}
+  preView: {fileID: 54508042}
 --- !u!4 &348104937
 Transform:
   m_ObjectHideFlags: 0
@@ -1768,6 +1774,7 @@ Transform:
   - {fileID: 1468829292}
   - {fileID: 978587168}
   - {fileID: 5161506}
+  - {fileID: 2096357885}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1783,15 +1790,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playmode: 0
-  outputCamSource1: {fileID: 0}
-  outputCamSource2: {fileID: 0}
-  outputCamSource3: {fileID: 0}
-  preRenderedMovieSource1: {fileID: 0}
-  preRenderedMovieSource2: {fileID: 0}
-  preRenderedMovieSource3: {fileID: 0}
-  rltRenderingMovieSource1: {fileID: 0}
-  rltRenderingMovieSource2: {fileID: 0}
-  rltRenderingMovieSource3: {fileID: 0}
+  spoutSender: {fileID: 2096357886}
+  preRenderedMovieSource: {fileID: 8400000, guid: a6e0770a970b0954b98e94c57d5678f5,
+    type: 2}
+  rltRenderingMovieSource: {fileID: 8400000, guid: 05b44a2fd3833664aab55952ba9a9dec,
+    type: 2}
 --- !u!1 &978587167
 GameObject:
   m_ObjectHideFlags: 0
@@ -2878,6 +2881,46 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1675473030}
+--- !u!1 &1691631544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1691631545}
+  - component: {fileID: 1691631546}
+  m_Layer: 0
+  m_Name: processRunner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1691631545
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1691631544}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 156597220}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1691631546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1691631544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8ff680b0f0230e4f90f2a25a5b14f1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1723787568
 GameObject:
   m_ObjectHideFlags: 0
@@ -3097,6 +3140,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
+--- !u!1 &2096357884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2096357885}
+  - component: {fileID: 2096357887}
+  - component: {fileID: 2096357886}
+  m_Layer: 0
+  m_Name: SpoutSender
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2096357885
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2096357884}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 796480910}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2096357886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2096357884}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2582b4147ea6e4ebf31586d3c7d730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharingName: UnitySender
+  texture: {fileID: 8400000, guid: d042a0cb66ef147c69933c813fb3d984, type: 2}
+  textureFormat: 28
+  debugConsole: 1
+--- !u!114 &2096357887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2096357884}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa175692d4b749244b474315598e4d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isEnabledInEditor: 0
 --- !u!1 &2141539768
 GameObject:
   m_ObjectHideFlags: 0
