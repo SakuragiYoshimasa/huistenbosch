@@ -27,6 +27,9 @@ public class MovieController : MonoBehaviour {
 	[SerializeField]
 	private RenderTexture preRenderedMovieSource;
 
+    [SerializeField]
+    private preRenderMovie prerenderMovie;
+
 	[SerializeField]
 	private RenderTexture rltRenderingMovieSource;
 	
@@ -63,12 +66,15 @@ public class MovieController : MonoBehaviour {
 	}
 
 	private void switchToRLTRendering(){
+        playmode = PlayMode.RLT_RENDERING;
         spoutSender.texture = rltRenderingMovieSource;
         MainConrtroller.I.SetPreviewTexture(rltRenderingMovieSource);
-	}
+        
+    }
 
 	private void switchToPreRendered(){
         spoutSender.texture = preRenderedMovieSource;
         MainConrtroller.I.SetPreviewTexture(preRenderedMovieSource);
-	}
+        prerenderMovie.StartPreRenderedMovie();
+    }
 }
