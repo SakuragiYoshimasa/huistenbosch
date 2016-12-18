@@ -58,15 +58,17 @@ public class MainConrtroller : Singleton<MainConrtroller> {
 		ImageLoadManager.I.RemoveSelectedTextures (selectedStates);
 	}
 
-    public void SetPreviewTexture(RenderTexture tex) {
-        mainMenu.SetPreviewTexture(tex);
+    public void changePreviewScreen(MovieController.PlayMode mode)
+    {
+        mainMenu.changePreviewScreen(mode);
     }
-	#endregion
+    #endregion
 
 
-	#region AfterStartMovie
-	public void StopPlay(){
-		mainMenu.switchToMenuMode ();
+    #region AfterStartMovie
+    public void StopPlay(){
+        ImageLoadManager.I.refresh();
+        mainMenu.switchToMenuMode ();
 		soundController.stopSound ();
 		movieController.stopMovie ();
 	}

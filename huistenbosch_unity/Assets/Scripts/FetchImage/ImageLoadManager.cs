@@ -30,9 +30,6 @@ public class ImageLoadManager : Singleton<ImageLoadManager> {
     }
 
     public List<Texture2D> GetTextures() {
-        if (textures.Count == 0) {
-            textures = FileLoader.LoadTextures();
-        }
         return textures;
     }
 
@@ -59,6 +56,10 @@ public class ImageLoadManager : Singleton<ImageLoadManager> {
         }
 
         return textures[useIndex];
+    }
+
+    public void refresh() {
+        textures = new List<Texture2D>(0);
     }
 
     public void LoadTextures() {

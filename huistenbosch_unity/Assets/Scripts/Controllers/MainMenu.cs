@@ -61,7 +61,9 @@ public class MainMenu : MonoBehaviour {
     [SerializeField]
     private Canvas mainCanvas;
     [SerializeField]
-    private RawImage preView;
+    private GameObject prePreview;
+    [SerializeField]
+    private GameObject rltPreview;
 	#endregion
 
 	#region ButtonEvent
@@ -146,10 +148,14 @@ public class MainMenu : MonoBehaviour {
 	}
     #endregion
 
-    public void SetPreviewTexture(RenderTexture tex)
-    {
-        Debug.Log("texture setted");
-        preView.texture = tex;
+    public void changePreviewScreen(MovieController.PlayMode mode) {
+        if (mode == MovieController.PlayMode.PRE_RENDERED) {
+            prePreview.SetActive(true);
+            rltPreview.SetActive(false);
+        } else if(mode == MovieController.PlayMode.RLT_RENDERING) {
+            prePreview.SetActive(false);
+            rltPreview.SetActive(true);
+        }
     }
 
     void Start(){
@@ -208,6 +214,7 @@ public class MainMenu : MonoBehaviour {
 	public void switchToMenuMode(){
 		foreach(GameObject go in menuObjects){
 			go.SetActive (true);
+            UpdateScrollImageViewContent();
 		}
 
 		foreach(GameObject go in previewObjects){

@@ -26,5 +26,6 @@ public class preRenderMovie : MonoBehaviour {
     }
 
     public void StopPreRenderedMovie() {
+        movieTexture.Stop();
     }
 }

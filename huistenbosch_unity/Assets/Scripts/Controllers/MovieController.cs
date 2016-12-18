@@ -12,8 +12,8 @@ public class MovieController : MonoBehaviour {
 
 	public PlayMode playmode = PlayMode.PRE_RENDERED;
 		
-	public const int PRE_RENDERED_TIME_MILLIS = 10000;
-	public const int WHOLE_PLAYING_TIME_MILLS = 300000;
+	public const int PRE_RENDERED_TIME_MILLIS = 5000;
+	public const int WHOLE_PLAYING_TIME_MILLS = 10000;
 
 	private int starttime;
 	private int now;
@@ -75,13 +75,13 @@ public class MovieController : MonoBehaviour {
         prerenderMovie.StopPreRenderedMovie();
         playmode = PlayMode.RLT_RENDERING;
         spoutSender.texture = rltRenderingMovieSource;
-        MainConrtroller.I.SetPreviewTexture(rltRenderingMovieSource);
+        MainConrtroller.I.changePreviewScreen(PlayMode.RLT_RENDERING);
         rltRnederingMovie.StartRLTRenderingMovie();
     }
 
 	private void switchToPreRendered(){
         spoutSender.texture = preRenderedMovieSource;
-        MainConrtroller.I.SetPreviewTexture(preRenderedMovieSource);
+        MainConrtroller.I.changePreviewScreen(PlayMode.PRE_RENDERED);
         prerenderMovie.StartPreRenderedMovie();
     }
 }

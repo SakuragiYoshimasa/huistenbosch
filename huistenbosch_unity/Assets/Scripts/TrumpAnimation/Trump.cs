@@ -21,7 +21,7 @@ public class Trump : MonoBehaviour {
 	private GameObject surface_back;
 
 	void Start(){
-        Debug.Log("Init");
+       // Debug.Log("Init");
         Image = TrumpManager.I.shapeTex;
 		Material mat = new Material (Shader.Find("Custom/TrumpShader"));
 		mat.SetTexture("_MainTex",ImageLoadManager.I.GetSortedTexture());
