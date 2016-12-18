@@ -24,4 +24,7 @@ public class preRenderMovie : MonoBehaviour {
         movieTexture.Play();
         cam.source = movieTexture;
     }
+
+    public void StopPreRenderedMovie() {
+    }
 }

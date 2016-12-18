@@ -81,7 +81,6 @@
 -define:UNITY_TEAM_LICENSE
 "Assets/DownloadedAssets/Particle Ribbon/Scripts/ReverseNormals.cs"
 Assets/DownloadedAssets/SimpleParticlePack/Scripts/ParticleTester.cs
-Assets/ProcessRunner.cs
 Assets/Scripts/Controllers/MainConrtroller.cs
 Assets/Scripts/Controllers/MainMenu.cs
 Assets/Scripts/Controllers/MovieController.cs
@@ -90,6 +89,7 @@ Assets/Scripts/FetchImage/FileLoader.cs
 Assets/Scripts/FetchImage/ImageLoadManager.cs
 Assets/Scripts/FetchImage/JSONparser.cs
 Assets/Scripts/FetchImage/WebSocketReceiver.cs
+Assets/Scripts/ProcessRunner.cs
 Assets/Scripts/Singleton.cs
 Assets/Scripts/TrumpAnimation/Animation_ConstructionTest.cs
 Assets/Scripts/TrumpAnimation/Trump.cs
@@ -98,6 +98,9 @@ Assets/Scripts/TrumpAnimation/TrumpManager.cs
 Assets/Scripts/TrumpAnimation/Wind.cs
 Assets/Scripts/TrumpAnimation/animationControllRigidAndEnableTest.cs
 Assets/Scripts/TrumpAnimation/makeAnimation.cs
+Assets/Scripts/preRenderMovie.cs
+Assets/Scripts/preRenderSourceCamera.cs
+Assets/Scripts/rtmRenderedMovie.cs
 Assets/Scripts/testScript/rotationTest.cs
 Assets/Scripts/testScript/test_mov.cs
 Assets/Spout/Scripts/InvertCamera.cs
@@ -105,8 +108,6 @@ Assets/Spout/Scripts/Spout.cs
 Assets/Spout/Scripts/SpoutReceiver.cs
 Assets/Spout/Scripts/SpoutSender.cs
 Assets/Spout/Scripts/TextureInfo.cs
-Assets/preRenderMovie.cs
-Assets/preRenderSourceCamera.cs
 -r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unity\System.Runtime.Serialization.dll"
 -r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unity\System.Xml.Linq.dll"
 -r:"C:\Program Files\Unity\Editor\Data\MonoBleedingEdge\lib\mono\unity\UnityScript.dll"

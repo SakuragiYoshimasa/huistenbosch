@@ -148,6 +148,7 @@ public class MainMenu : MonoBehaviour {
 
     public void SetPreviewTexture(RenderTexture tex)
     {
+        Debug.Log("texture setted");
         preView.texture = tex;
     }
 

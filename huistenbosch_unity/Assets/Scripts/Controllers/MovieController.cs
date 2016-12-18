@@ -12,7 +12,7 @@ public class MovieController : MonoBehaviour {
 
 	public PlayMode playmode = PlayMode.PRE_RENDERED;
 		
-	public const int PRE_RENDERED_TIME_MILLIS = 240000;
+	public const int PRE_RENDERED_TIME_MILLIS = 10000;
 	public const int WHOLE_PLAYING_TIME_MILLS = 300000;
 
 	private int starttime;
@@ -32,6 +32,9 @@ public class MovieController : MonoBehaviour {
 
 	[SerializeField]
 	private RenderTexture rltRenderingMovieSource;
+
+    [SerializeField]
+    private rtmRenderedMovie rltRnederingMovie;
 	
 	void Update(){
 		if (!isPlaying) return;
@@ -44,9 +47,11 @@ public class MovieController : MonoBehaviour {
 		if (elapsedTimeMillis > PRE_RENDERED_TIME_MILLIS && playmode == PlayMode.PRE_RENDERED) {
 			playmode = PlayMode.RLT_RENDERING;
 			switchToRLTRendering ();
+            Debug.Log("Finish PRE");
 		}
 		if(elapsedTimeMillis > WHOLE_PLAYING_TIME_MILLS){
 			MainConrtroller.I.StopPlay ();
+            Debug.Log("Finish RTL");
 		}
 	}
 
@@ -59,6 +64,7 @@ public class MovieController : MonoBehaviour {
 
 	public void stopMovie(){
 		isPlaying = false;
+        rltRnederingMovie.StopRLTRenderingMovie();
 	}
 
 	public void pauseMovie(){
@@ -66,10 +72,11 @@ public class MovieController : MonoBehaviour {
 	}
 
 	private void switchToRLTRendering(){
+        prerenderMovie.StopPreRenderedMovie();
         playmode = PlayMode.RLT_RENDERING;
         spoutSender.texture = rltRenderingMovieSource;
         MainConrtroller.I.SetPreviewTexture(rltRenderingMovieSource);
-        
+        rltRnederingMovie.StartRLTRenderingMovie();
     }
 
 	private void switchToPreRendered(){
