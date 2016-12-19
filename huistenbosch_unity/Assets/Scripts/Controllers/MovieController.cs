@@ -27,6 +27,10 @@ public class MovieController : MonoBehaviour {
 	private RenderTexture rltRenderingMovieSource;
     [SerializeField]
     private rtmRenderedMovie rltRnederingMovie;
+    [SerializeField]
+    private RenderTexture mappingTestTexture;
+    [SerializeField]
+    private RenderTexture blackTexture;
 	
 	void Update(){
 		if (!isPlaying) return;
@@ -45,6 +49,12 @@ public class MovieController : MonoBehaviour {
             Debug.Log("Finish RTL");
 		}
 	}
+    public void setMappingMode() {
+        spoutSender.texture = mappingTestTexture;
+    }
+    public void endMappingMode() {
+        spoutSender.texture = blackTexture;
+    }
 	public void playMovie(){
 		playmode = PlayMode.PRE_RENDERED;
 		starttime = DateTime.Now.Hour * 60 *60 * 1000 + DateTime.Now.Minute * 60 * 1000 + DateTime.Now.Second * 1000 + DateTime.Now.Millisecond;
@@ -54,6 +64,7 @@ public class MovieController : MonoBehaviour {
 	public void stopMovie(){
 		isPlaying = false;
         rltRnederingMovie.StopRLTRenderingMovie();
+        spoutSender.texture = blackTexture;
 	}
 	public void pauseMovie(){
 		isPlaying = false;

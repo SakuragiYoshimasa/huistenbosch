@@ -21,8 +21,17 @@ public class MainConrtroller : Singleton<MainConrtroller> {
 	private SoundController soundController;
 	[SerializeField]
 	private MovieController movieController;
+    [SerializeField]
+    private bool isMappingTesting;
     #endregion
-
+    #region MappingTest
+    public void MappingTestStart() {
+        movieController.setMappingMode();
+    }
+    public void MappingTestEnd() {
+        movieController.endMappingMode();
+    }
+    #endregion
     #region BeforeStartMovie
     public void StartMovieSplitIntoTwo(){
 		if(!checkLoadedTextures()) return;
@@ -60,8 +69,6 @@ public class MainConrtroller : Singleton<MainConrtroller> {
         mainMenu.changePreviewScreen(mode);
     }
     #endregion
-
-
     #region AfterStartMovie
     public void StopPlay(){
         ImageLoadManager.I.refresh();

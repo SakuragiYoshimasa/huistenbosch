@@ -39,6 +39,8 @@ public class MainMenu : MonoBehaviour {
 	private GameObject[] menuObjects;
 	[SerializeField]
 	private GameObject[] previewObjects;
+    [SerializeField]
+    private GameObject[] MappingtestObejcts;
 	#endregion
 
 	#region ScrollViewFields
@@ -80,10 +82,42 @@ public class MainMenu : MonoBehaviour {
 		MainConrtroller.I.RemoveSelectedTextures (selecedStates);
 		UpdateScrollImageViewContent ();
 	}
-
 	public void StopPlay(){
 		MainConrtroller.I.StopPlay ();
 	}
+    public void MappingTestStart() {
+        MainConrtroller.I.MappingTestStart();
+        foreach (GameObject go in menuObjects)
+        {
+            go.SetActive(false);
+        }
+
+        foreach (GameObject go in previewObjects)
+        {
+            go.SetActive(false);
+        }
+
+        foreach (GameObject go in MappingtestObejcts) {
+            go.SetActive(true);
+        }
+    }
+    public void MappingTestEnd() {
+        MainConrtroller.I.MappingTestEnd();
+        foreach (GameObject go in menuObjects)
+        {
+            go.SetActive(true);
+        }
+
+        foreach (GameObject go in previewObjects)
+        {
+            go.SetActive(false);
+        }
+
+        foreach (GameObject go in MappingtestObejcts)
+        {
+            go.SetActive(false);
+        }
+    }
 	#endregion
 
 	#region ScrollViewFunctions
