@@ -20,7 +20,7 @@ public class Trump : MonoBehaviour {
 	[SerializeField]
 	private GameObject surface_back;
 
-	void Start(){
+	void OnEnable(){
        // Debug.Log("Init");
         Image = TrumpManager.I.shapeTex;
 		Material mat = new Material (Shader.Find("Custom/TrumpShader"));
