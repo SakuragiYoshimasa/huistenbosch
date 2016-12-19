@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
- 
 //
 //attached Trump object, which is an empty object has two plane
 //
@@ -21,7 +20,6 @@ public class Trump : MonoBehaviour {
 	private GameObject surface_back;
 
 	void OnEnable(){
-       // Debug.Log("Init");
         Image = TrumpManager.I.shapeTex;
 		Material mat = new Material (Shader.Find("Custom/TrumpShader"));
 		mat.SetTexture("_MainTex",ImageLoadManager.I.GetSortedTexture());
@@ -30,12 +28,4 @@ public class Trump : MonoBehaviour {
 		surface_back.GetComponent<Renderer> ().material = mat;
 		surface_front.GetComponent<Renderer> ().material = mat;
 	}
-
-    void Update() {
-        /*if (Input.GetKeyUp(KeyCode.Space)) {
-            Debug.Log("Update");
-            surface_back.GetComponent<Renderer>().material.SetTexture("_ShapeTex", TrumpManager.I.shapeTex);
-            surface_front.GetComponent<Renderer>().material.SetTexture("_ShapeTex", TrumpManager.I.shapeTex);
-        }*/
-    }
 }

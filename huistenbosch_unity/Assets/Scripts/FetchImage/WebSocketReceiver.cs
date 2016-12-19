@@ -37,10 +37,3 @@ public class WebSocketReceiver : MonoBehaviour {
 
 	//public delegate void getNewTweetCallBack(Tweet newTweet);
 }
-
-//export NODE_PATH=$HOME/.nodebrew/current/lib/node_modules
-//export PATH=$HOME/.nodebrew/current/bin:$PATH
-//export NODEBREW_ROOT=$HOME/.nodebrew
-//ps aux | grep node
-//sudo kill -9 num
-//nmp i

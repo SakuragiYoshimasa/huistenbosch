@@ -9,25 +9,22 @@ public class MainConrtroller : Singleton<MainConrtroller> {
 		PLAYING,
 		TESTPROJECTION
 	}
-
 	public enum SplitMode {
 		TWO,
 		THREE
 	}
-
-	public SplitMode splitMode;
-
+    #region Feilds
+    public SplitMode splitMode;
 	[SerializeField]
 	private MainMenu mainMenu;
-
-	//In movie
 	[SerializeField]
 	private SoundController soundController;
 	[SerializeField]
 	private MovieController movieController;
+    #endregion
 
-	#region BeforeStartMovie
-	public void StartMovieSplitIntoTwo(){
+    #region BeforeStartMovie
+    public void StartMovieSplitIntoTwo(){
 		if(!checkLoadedTextures()) return;
 		splitMode = SplitMode.TWO;
 		soundController.playSound ();

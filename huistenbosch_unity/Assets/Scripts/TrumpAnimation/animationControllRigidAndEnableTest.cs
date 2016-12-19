@@ -11,16 +11,13 @@ public class animationControllRigidAndEnableTest : MonoBehaviour {
     public List<GameObject> AddRigidBodyObjects;
 
     public GameObject floor;
-
-	// Use this for initialization
+    
 	void Start () {
 		
 	}
 	
-	// Update is called once per frame
 	void Update () {
         float fps = 1f / Time.deltaTime;
-        //Debug.LogFormat("{0}fps", fps);
         if (Input.GetKeyUp(KeyCode.Space)) {
             foreach (GameObject go in AddRigidBodyObjects ){
                 go.AddComponent<Rigidbody>();
@@ -28,7 +25,6 @@ public class animationControllRigidAndEnableTest : MonoBehaviour {
                     go.GetComponent<MeshCollider>().convex = true;
                 }
             }
-
             foreach (GameObject go in DisableObjects) {
                 go.SetActive(false);
             }

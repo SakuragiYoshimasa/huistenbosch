@@ -6,11 +6,8 @@ using UnityEditor;
 public class makeAnimation : MonoBehaviour {
 
     AnimationClip animClip;
-
     public Transform targetTower;
     public float elapsedTime;
-    // Use this for initialization
-
     public Dictionary<string, AnimationCurve> curves;
 
     void Start() {
@@ -22,13 +19,8 @@ public class makeAnimation : MonoBehaviour {
         curves = new Dictionary<string, AnimationCurve>(0);
         generateCurve(transform, "", 0f);
         Debug.Log("Generated Curves" + curves.Count);
-        
-        //foreach (KeyValuePair<string, AnimationCurve> curve in curves) {
-         //   Debug.Log(curve.Key);
-       // }
 	}
 
-  
     void Update()
     {
         elapsedTime += Time.deltaTime;

@@ -5,12 +5,10 @@ using UnityEngine;
 
 public class Animation_ConstructionTest : MonoBehaviour {
 
-   
 	void Start () {
         removeRigidBody(transform);
 	}
 	
-
 	void Update () {
        //float fps = 1f / Time.deltaTime;
        //Debug.LogFormat("{0}fps", fps);
@@ -26,7 +24,6 @@ public class Animation_ConstructionTest : MonoBehaviour {
             else {
                 removeRigidBody(parent.GetChild(i));
             }
-        
         }
     }
 }
