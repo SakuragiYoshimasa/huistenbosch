@@ -7,6 +7,8 @@ public class FileLoader : MonoBehaviour {
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
     public const string FOLDER_PATH = "/Users/sakuragi/Desktop/twiapi/img_scrape/";
     public const int IMAGE_NUM = 188;
+    public const string FOLDER_PATH_TWITTER = "/Users/sakuragi/Desktop/twiapi/img_scrape/";
+    public const int IMAGE_NUM_TWITTER = 100;
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
     public const string FOLDER_PATH = "/Users/yoshimasasakuragi/Desktop/twiapi/img/";
     public const int IMAGE_NUM = 188; 
@@ -28,6 +30,18 @@ public class FileLoader : MonoBehaviour {
 		}
 		return textures;
 	}
+    public static List<Texture2D> LoadTexturesFromTwitter() {
+        List<Texture2D> textures = new List<Texture2D> (0);
+		for(int i = 0; i < IMAGE_NUM_TWITTER; i++){
+			Texture2D tex = new Texture2D(0,0);
+			string texpath = FileLoader.FOLDER_PATH_TWITTER + i.ToString () + FileLoader.IMAGE_SUFFIX;
+			tex.LoadImage(LoadBin(texpath));
+            if (tex != null) {
+                textures.Add(tex);
+            }
+		}
+		return textures;
+    }
 
 	static byte[] LoadBin(string path){
 		FileStream fs = new FileStream(path, FileMode.Open);

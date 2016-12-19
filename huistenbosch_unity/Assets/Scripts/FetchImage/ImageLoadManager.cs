@@ -13,15 +13,19 @@ public class ImageLoadManager : Singleton<ImageLoadManager> {
     [SerializeField]
     private MainMenu mainMenu;
     public bool FetchFinished = false;
+    public bool twitterFetchFinished = false;
 
     void Start() {
         usedIndex = 0;
     }
-
     void Update() {
         if (FetchFinished) {
             HandleFetchedImages();
             FetchFinished = false;
+        }
+        if (twitterFetchFinished) {
+            HandleFetchedImagesFromTwitter();
+            twitterFetchFinished = false;
         }
     }
 
@@ -59,12 +63,21 @@ public class ImageLoadManager : Singleton<ImageLoadManager> {
         //動作確認済みなので省略
         LoadDummyTextures();
     }
+    public void LoadTwitterTexture() {
+        //processRunner.FetchImageFromTwitter();
+        //一旦省略
+        LoadDummyTextures();
+    }
     public void LoadDummyTextures() {
         textures = FileLoader.LoadTextures();
         mainMenu.UpdateScrollImageViewContent();
     }
     public void HandleFetchedImages() {
         textures = FileLoader.LoadTextures();
+        mainMenu.UpdateScrollImageViewContent();
+    }
+    public void HandleFetchedImagesFromTwitter() {
+        textures = FileLoader.LoadTexturesFromTwitter();
         mainMenu.UpdateScrollImageViewContent();
     }
     public int GetLoadedTexturesSize(){

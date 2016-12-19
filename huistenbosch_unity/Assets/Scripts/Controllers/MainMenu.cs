@@ -72,6 +72,12 @@ public class MainMenu : MonoBehaviour {
 	public void LoadImages(){
 		MainConrtroller.I.LoadImages ();
 	}
+    public void LoadDammy() {
+        MainConrtroller.I.LoadDammy();
+    }
+    public void LoadFromTwitter() {
+        MainConrtroller.I.LoadFromTwitter();
+    }
 	public void StartMovieSplitIntoTwo(){
 		MainConrtroller.I.StartMovieSplitIntoTwo ();
 	}

@@ -52,8 +52,16 @@ public class MainConrtroller : Singleton<MainConrtroller> {
 	public void LoadImages(){
 		ImageLoadManager.I.LoadTextures ();
 	}
+    public void LoadDammy()
+    {
+        ImageLoadManager.I.LoadDummyTextures();
+    }
+    public void LoadFromTwitter()
+    {
+        ImageLoadManager.I.LoadTwitterTexture();
+    }
 
-	private bool checkLoadedTextures(){
+    private bool checkLoadedTextures(){
 		if(ImageLoadManager.I.GetLoadedTexturesSize() > 0){
 			return true;
 		}
