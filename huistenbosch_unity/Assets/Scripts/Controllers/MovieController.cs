@@ -12,7 +12,7 @@ public class MovieController : MonoBehaviour {
 
 	public PlayMode playmode = PlayMode.PRE_RENDERED;
 	public const int PRE_RENDERED_TIME_MILLIS = 5000;
-	public const int WHOLE_PLAYING_TIME_MILLS = 10000;
+	public const int WHOLE_PLAYING_TIME_MILLS = 80000;
 	private int starttime;
 	private int now;
 	private int elapsedTimeMillis;
