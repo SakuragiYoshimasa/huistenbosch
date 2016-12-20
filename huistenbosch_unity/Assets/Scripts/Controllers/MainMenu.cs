@@ -41,6 +41,8 @@ public class MainMenu : MonoBehaviour {
 	private GameObject[] previewObjects;
     [SerializeField]
     private GameObject[] MappingtestObejcts;
+    [SerializeField]
+    private GameObject nowloadingPannel;
 	#endregion
 
 	#region ScrollViewFields
@@ -70,12 +72,14 @@ public class MainMenu : MonoBehaviour {
 
 	#region ButtonEvent
 	public void LoadImages(){
+        LoadingStart();
 		MainConrtroller.I.LoadImages ();
 	}
     public void LoadDammy() {
         MainConrtroller.I.LoadDammy();
     }
     public void LoadFromTwitter() {
+        LoadingStart();
         MainConrtroller.I.LoadFromTwitter();
     }
 	public void StartMovieSplitIntoTwo(){
@@ -123,6 +127,12 @@ public class MainMenu : MonoBehaviour {
         {
             go.SetActive(false);
         }
+    }
+    public void LoadingStart() {
+        nowloadingPannel.SetActive(true);
+    }
+    public void LoadingEnd() {
+        nowloadingPannel.SetActive(false);
     }
 	#endregion
 

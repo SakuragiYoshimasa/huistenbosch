@@ -59,25 +59,25 @@ public class ImageLoadManager : Singleton<ImageLoadManager> {
         textures = new List<Texture2D>(0);
     }
     public void LoadTextures() {
-        //processRunner.FetchImage();
-        //動作確認済みなので省略
-        LoadDummyTextures();
+        processRunner.FetchImage();
+        //LoadDummyTextures();
     }
     public void LoadTwitterTexture() {
-        //processRunner.FetchImageFromTwitter();
-        //一旦省略
-        LoadDummyTextures();
+        processRunner.FetchImageFromTwitter();
+        //LoadDummyTextures();
     }
     public void LoadDummyTextures() {
-        textures = FileLoader.LoadTextures();
+        textures = FileLoader.LoadTexturesDammy();
         mainMenu.UpdateScrollImageViewContent();
     }
     public void HandleFetchedImages() {
         textures = FileLoader.LoadTextures();
+        mainMenu.LoadingEnd();
         mainMenu.UpdateScrollImageViewContent();
     }
     public void HandleFetchedImagesFromTwitter() {
         textures = FileLoader.LoadTexturesFromTwitter();
+        mainMenu.LoadingEnd();
         mainMenu.UpdateScrollImageViewContent();
     }
     public int GetLoadedTexturesSize(){

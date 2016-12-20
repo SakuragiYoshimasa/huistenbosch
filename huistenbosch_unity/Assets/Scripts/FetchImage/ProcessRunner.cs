@@ -6,7 +6,7 @@ public class ProcessRunner : MonoBehaviour {
 
     public void FetchImage() {
         var projectFolder = System.IO.Directory.GetCurrentDirectory();
-        System.IO.Directory.SetCurrentDirectory("C:/Users/sakuragi/Desktop/twiapi");
+        System.IO.Directory.SetCurrentDirectory("C:/Users/sakuragi/Desktop/huistenbosch_sns");
         ProcessStart();
 
         System.IO.Directory.SetCurrentDirectory(projectFolder);
@@ -32,8 +32,8 @@ public class ProcessRunner : MonoBehaviour {
 
     public void FetchImageFromTwitter() {
         var projectFolder = System.IO.Directory.GetCurrentDirectory();
-        System.IO.Directory.SetCurrentDirectory("C:/Users/sakuragi/Desktop/twiapi");
-        FetchImageFromTwitter();
+        System.IO.Directory.SetCurrentDirectory("C:/Users/sakuragi/Desktop/huistenbosch_sns");
+        TwitterProcessStart();
 
         System.IO.Directory.SetCurrentDirectory(projectFolder);
     }
@@ -41,7 +41,7 @@ public class ProcessRunner : MonoBehaviour {
     private void TwitterProcessStart() {
         System.Diagnostics.Process process = new System.Diagnostics.Process();
         process.StartInfo.FileName = "node";
-        process.StartInfo.Arguments = "scrape_instagram.js ハウステンボス";
+        process.StartInfo.Arguments = "twitter.js ハウステンボス";
         process.StartInfo.UseShellExecute = false;
         process.StartInfo.RedirectStandardOutput = true;
         process.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(OutputHandler);
