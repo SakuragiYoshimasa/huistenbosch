@@ -11,25 +11,27 @@
 		#pragma surface surf Lambert alpha:fade
 		
 		struct Input {
-			float2 uv_MainTex;
+			
+			float2 uv_ShapeTex;
 		};
 
-		sampler2D _MainTex;
+		
 		sampler2D _ShapeTex;
+		fixed4 _Color;
 
 
 		void surf(Input IN, inout SurfaceOutput o) {
-			o.Albedo = tex2D(_MainTex, IN.uv_MainTex).rgb;
-
-			fixed4 col = tex2D(_MainTex, IN.uv_MainTex);
-			fixed4 shapeCol = tex2D(_ShapeTex, IN.uv_MainTex);
-			if (shapeCol.w == 0) {
+			
+			fixed4 shapeCol = tex2D(_ShapeTex, IN.uv_ShapeTex);
+			if (shapeCol.r == 0 && shapeCol.g == 0 && shapeCol.b == 0) {
 				o.Albedo = fixed3(0, 0, 0);
 				o.Alpha = 0;
-				return;
+				//return;
 			}
-			o.Albedo = col.rgb;
-			o.Alpha = 1.0;
+			else {
+				o.Albedo = _Color.rgb;
+				o.Alpha = 1.0;
+			}
 		}
 		ENDCG
 	}

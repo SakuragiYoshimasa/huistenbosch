@@ -29,7 +29,7 @@
 
 			fixed4 col = tex2D(_MainTex, IN.uv_MainTex);
 			fixed4 shapeCol = tex2D(_ShapeTex, IN.uv_MainTex);
-			if (shapeCol.a == 0) {
+			if (shapeCol.a == 0 || (shapeCol.r == 0 && shapeCol.g == 0 && shapeCol.b == 0)) {
 				o.Albedo = fixed3(0, 0, 0);
 				o.Alpha = 0;
 				return;
