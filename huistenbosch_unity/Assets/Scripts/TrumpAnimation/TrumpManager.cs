@@ -5,4 +5,6 @@ using UnityEngine;
 public class TrumpManager : Singleton<TrumpManager> {
 	[SerializeField]
 	public Texture2D shapeTex;
+    [SerializeField]
+    public Shader trumpShader;
 }

@@ -34,7 +34,7 @@ public class ImageLoadManager : Singleton<ImageLoadManager> {
     }
     public Texture2D GetRandomTexture() {
         if (textures.Count == 0) {
-            textures = FileLoader.LoadTextures();
+            textures = FileLoader.LoadTexturesDammy();
         }
 
         double randomValue = Random.value;
@@ -44,7 +44,7 @@ public class ImageLoadManager : Singleton<ImageLoadManager> {
     public Texture2D GetSortedTexture() {
 
         if (textures.Count == 0) {
-            textures = FileLoader.LoadTextures();
+            textures = FileLoader.LoadTexturesDammy();
         }
 
         int useIndex = usedIndex;
