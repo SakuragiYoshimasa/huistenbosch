@@ -14,6 +14,10 @@ public class FileLoader : MonoBehaviour {
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
     public const string FOLDER_PATH = "/Users/yoshimasasakuragi/Desktop/twiapi/img/";
     public const int IMAGE_NUM = 188; 
+	public const string FOLDER_PATH_TWITTER = "/Users/sakuragi/Desktop/huistenbosch_sns/twitter_img/";
+	public const int IMAGE_NUM_TWITTER = 100;
+	public const string DAMMY_FOLDER_PATH = "/Users/yoshimasasakuragi/Desktop/twiapi/img/";
+	public const int DAMMY_IMAGE_NUM = 188;
 #endif
     public const string IMAGE_SUFFIX = ".jpg";
 	
