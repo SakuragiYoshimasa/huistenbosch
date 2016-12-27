@@ -15,7 +15,7 @@ public class ProcessRunner : MonoBehaviour {
     private void ProcessStart() {
         System.Diagnostics.Process process = new System.Diagnostics.Process();
         process.StartInfo.FileName = "node";
-        process.StartInfo.Arguments = "scrape_instagram.js ハウステンボス";
+        process.StartInfo.Arguments = "scrape_instagram.js ハウステンボスの思い出";
         process.StartInfo.UseShellExecute = false;
         process.StartInfo.RedirectStandardOutput = true;
         process.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(OutputHandler);
@@ -41,7 +41,7 @@ public class ProcessRunner : MonoBehaviour {
     private void TwitterProcessStart() {
         System.Diagnostics.Process process = new System.Diagnostics.Process();
         process.StartInfo.FileName = "node";
-        process.StartInfo.Arguments = "twitter.js ハウステンボス";
+        process.StartInfo.Arguments = "twitter.js ハウステンボスの思い出";
         process.StartInfo.UseShellExecute = false;
         process.StartInfo.RedirectStandardOutput = true;
         process.OutputDataReceived += new System.Diagnostics.DataReceivedEventHandler(OutputHandler);
